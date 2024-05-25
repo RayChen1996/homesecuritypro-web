@@ -50,14 +50,23 @@ export default function Service() {
       <div className=" w-full flex justify-center  mb-[60px]    ">
         <div className=" grid grid-cols-2 md:grid-cols-4 gap-4">
           {datas.map((item, idx) => (
-            <div key={`item-${idx}`} className=" relative  border rounded-2xl ">
+            <div
+              key={`item-${idx}`}
+              // style={{
+              //   backgroundImage: `url(${item.imgSrc})`,
+              //   backgroundRepeat: "no-repeat",
+              //   backgroundSize: "cover",
+              // }}
+              className=" relative  border rounded-2xl "
+            >
               <Image
                 alt=""
                 src={item.imgSrc}
-                className="   w-full h-full "
+                className="   w-full h-full rounded-2xl "
                 width={250}
                 height={150}
               />
+              <div className=" absolute top1/2 left-1/2">{item.title}</div>
             </div>
           ))}
         </div>

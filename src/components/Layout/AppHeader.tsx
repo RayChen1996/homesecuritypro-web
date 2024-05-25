@@ -6,7 +6,7 @@ export default function AppHeader() {
     <div className=" flex justify-between bg-white mx-16 ">
       <div className=" my-6">
         <Link href={"/"}>
-          <Image alt="" src={"logo.svg"} width={150} height={50} />
+          <Image alt="" src={"/logo.svg"} width={150} height={50} />
         </Link>
       </div>
 

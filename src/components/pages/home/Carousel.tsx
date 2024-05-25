@@ -5,7 +5,7 @@ import dbArrowSvg from "@/../../public/dbArrow.svg";
 import Link from "next/link";
 export default function Carousel() {
   return (
-    <div className=" h-full relative">
+    <div className=" h-full relative mt-[60px]">
       <Image
         alt=""
         src={swiperImage}
@@ -13,7 +13,7 @@ export default function Carousel() {
         height={768}
         className=" w-full object-contain"
       />
-      <div className=" absolute w-96 left-1/3 rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
+      <div className=" absolute md:w-96 left-1/3 rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
         <h3 className=" text-white text-[40px] font-bold">您的家安全嗎？</h3>
         <Link href={"/"} className=" flex items-center">
           <span className=" text-white text-2xl font-bold">
