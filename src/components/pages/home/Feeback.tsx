@@ -2,6 +2,7 @@ import SectionTitle from "@/components/SectionTitle";
 import React from "react";
 import Image from "next/image";
 import SettingPng from "@/../../public/SettingBg.svg";
+import clsx from "clsx";
 interface userFeebacksProps {
   imgSrc: string;
   rating: number;
@@ -34,18 +35,32 @@ export default function Feeback() {
     },
   ];
   return (
-    <div className=" h-screen relative bg-background">
-      <Image src={SettingPng} alt="" className=" absolute right-5 top-3" />
-      <Image src={SettingPng} alt="" className=" absolute -left-32 bottom-3" />
+    <div className=" h-full relative bg-background">
+      <Image
+        src={SettingPng}
+        alt=""
+        className=" absolute right-5 top-3 hidden md:block"
+      />
+      <Image
+        src={SettingPng}
+        alt=""
+        className=" absolute -left-32 bottom-3 hidden md:block"
+      />
       <SectionTitle subTitle="" title="使用者心得" />
 
       <div className=" flex justify-center items-center flex-col">
         {userFeebacks.map((item, idx) => (
-          <div key={`${idx}`} className=" flex gap-3 ">
+          <div
+            key={`${idx}`}
+            className={clsx(
+              " flex gap-5 mb-16 ",
+              idx % 2 === 0 && "  flex-row-reverse"
+            )}
+          >
             <div className=" bg-white p-5 shadow-md rounded-tl-2xl rounded-bl-2xl rounded-br-2xl ">
               {item.message}
             </div>
-            <div className=" flex items-center gap-2">
+            <div className={clsx(" flex items-center gap-2")}>
               <div className="avatar ">
                 <div className="w-24 rounded-full">
                   <Image alt="" width={50} height={50} src={item.imgSrc} />

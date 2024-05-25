@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "material-icons": "^1.13.12",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18",
-    "material-icons": "^1.13.12"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
