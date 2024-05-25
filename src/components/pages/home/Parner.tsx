@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/SectionTitle";
 import React from "react";
 
+/** - 合作專家 */
 export default function Parner() {
   return (
     <div className=" h-screen">
