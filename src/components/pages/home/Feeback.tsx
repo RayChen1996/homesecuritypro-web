@@ -35,11 +35,11 @@ export default function Feeback() {
     },
   ];
   return (
-    <div className=" h-full relative bg-background">
+    <div className=" h-full relative bg-background overflow-hidden">
       <Image
         src={SettingPng}
         alt=""
-        className=" absolute right-5 top-3 hidden md:block"
+        className=" absolute right-0 top-3 hidden md:block -mr-20 "
       />
       <Image
         src={SettingPng}
