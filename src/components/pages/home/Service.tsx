@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/SectionTitle";
 import React from "react";
 import Image from "next/image";
+import clsx from "clsx";
 interface ServiceItemProps {
   imgSrc: string;
   title: string;
@@ -50,7 +51,13 @@ export default function Service() {
       <div className="flex justify-center  mb-[60px]">
         <div className=" grid grid-cols-2 md:grid-cols-4 gap-4">
           {datas.map((item, idx) => (
-            <div key={`item-${idx}`} className="relative">
+            <div
+              key={`item-${idx}`}
+              className={clsx(
+                "relative",
+                Math.floor(idx / 4) % 2 === 0 ? "-left-20" : "-right-28"
+              )}
+            >
               <figure className="rounded-5xl">
                 <Image
                   alt=""
@@ -61,7 +68,7 @@ export default function Service() {
                 />
               </figure>
 
-              <strong className="absolute top-1/2 left-20 text-2xl text-white">
+              <strong className="absolute top-28 left-20 text-2xl text-white">
                 {item.title}
               </strong>
             </div>
