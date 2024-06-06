@@ -11,7 +11,7 @@ import Carousel from "@/components/pages/home/Carousel";
 
 export default function Home() {
   return (
-    <main className="    ">
+    <main>
       <BasicLayout>
         <div className="flex flex-col   bg-gray-100 ">
           <Banner />
