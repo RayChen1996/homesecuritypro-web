@@ -30,13 +30,12 @@ export default function Carousel() {
             sizes="(min-width: 1024px) 70vw, 100vw"
             className="object-cover"
           />
-          <div className=" absolute md:w-96 left-1/3 rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
+          <div className=" m-auto  mt-80 h-1/5  w-1/5    rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
             <h3 className=" text-white text-[40px] font-bold">
               您的家安全嗎？
             </h3>
             <Link href={"/"} className=" flex items-center">
               <span className=" text-white text-2xl font-bold">
-                {" "}
                 找專家，保護家
               </span>
 
@@ -52,13 +51,12 @@ export default function Carousel() {
             sizes="(min-width: 1024px) 70vw, 100vw"
             className="object-cover"
           />
-          <div className=" absolute md:w-96 left-1/3 rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
+          <div className=" m-auto  mt-80 h-1/5  w-1/5    rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
             <h3 className=" text-white text-[40px] font-bold">
               您的家安全嗎？
             </h3>
             <Link href={"/"} className=" flex items-center">
               <span className=" text-white text-2xl font-bold">
-                {" "}
                 找專家，保護家
               </span>
 
