@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import bannerPng from "@/../../public/bannerimage.png";
 
+/** - 房屋狀況Block */
 export default function Banner() {
   return (
     <div className=" relative w-full">
@@ -36,7 +37,7 @@ function CheckList() {
         您的房屋有以下狀況嗎？
       </h1>
       <div className=" grid grid-cols-3 gap-4">
-        <span className=" bg-white opacity-75 rounded-3xl py-4 px-8 text-lg font-medium text-white-dark">
+        <span className=" bg-white opacity-75 rounded-3xl py-4 px-8 text-lg font-medium text-white-dark ">
           逃生不易
         </span>
         <span className=" bg-white opacity-75 rounded-3xl py-4 px-8 text-lg font-medium text-white-dark">

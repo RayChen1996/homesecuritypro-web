@@ -44,30 +44,30 @@ export default function Feeback() {
       <Image
         src={SettingPng}
         alt=""
-        className=" absolute -left-32 bottom-3 hidden md:block"
+        className="absolute -left-32 bottom-3 hidden md:block"
       />
       <SectionTitle subTitle="" title="使用者心得" />
 
-      <div className=" flex justify-center items-center flex-col">
+      <div className="flex justify-center items-center flex-col">
         {userFeebacks.map((item, idx) => (
           <div
             key={`${idx}`}
             className={clsx(
-              " flex gap-5 mb-16 ",
-              idx % 2 === 0 && "  flex-row-reverse"
+              " flex gap-5 mb-16",
+              idx % 2 === 0 && "flex-row-reverse"
             )}
           >
-            <div className=" bg-white p-5 shadow-md rounded-tl-2xl rounded-bl-2xl rounded-br-2xl ">
+            <div className=" bg-white p-5 shadow-md rounded-tl-2xl rounded-bl-2xl rounded-br-2xl text-white-dark ">
               {item.message}
             </div>
-            <div className={clsx(" flex items-center gap-2")}>
+            <div className={clsx("flex items-center gap-2")}>
               <div className="avatar ">
                 <div className="w-24 rounded-full">
                   <Image alt="" width={50} height={50} src={item.imgSrc} />
                 </div>
               </div>
               <div>
-                <div>{item.name}</div>
+                <div className="text-white-dark">{item.name}</div>
                 <div>
                   <div className="rating">
                     <input
