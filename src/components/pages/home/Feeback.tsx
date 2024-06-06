@@ -1,16 +1,23 @@
+"use client";
 import SectionTitle from "@/components/SectionTitle";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import SettingPng from "@/../../public/SettingBg.svg";
 import clsx from "clsx";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 interface userFeebacksProps {
   imgSrc: string;
   rating: number;
   name: string;
   message: string;
 }
+
 /** - 使用者心得 */
 export default function Feeback() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const userFeebacks: userFeebacksProps[] = [
     {
       imgSrc: "/man_avatar.png",
@@ -52,6 +59,12 @@ export default function Feeback() {
         {userFeebacks.map((item, idx) => (
           <div
             key={`${idx}`}
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos="fade-up"
             className={clsx(
               " flex gap-5 mb-16",
               idx % 2 === 0 && "flex-row-reverse"
