@@ -2,43 +2,53 @@ import SectionTitle from "@/components/SectionTitle";
 import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
+
+import svg1 from "@/../public/service1.svg";
+import svg2 from "@/../public/service2.svg";
+import svg3 from "@/../public/service3.svg";
+import svg4 from "@/../public/service4.svg";
+import svg5 from "@/../public/service5.svg";
+import svg6 from "@/../public/service6.svg";
+import svg7 from "@/../public/service7.svg";
+import svg8 from "@/../public/service8.svg";
+
 interface ServiceItemProps {
-  imgSrc: string;
+  imgSrc: any;
   title: string;
 }
 /** -服務項目 */
 export default function Service() {
   const datas: ServiceItemProps[] = [
     {
-      imgSrc: "/service1.svg",
+      imgSrc: svg1,
       title: "保護你的家庭安全",
     },
     {
-      imgSrc: "/service2.svg",
+      imgSrc: svg2,
       title: "發現潛在的安全隱患",
     },
     {
-      imgSrc: "/service3.svg",
+      imgSrc: svg3,
       title: "保護你所愛的人",
     },
     {
-      imgSrc: "/service4.svg",
+      imgSrc: svg4,
       title: "將家變成安全的港灣",
     },
     {
-      imgSrc: "/service5.svg",
+      imgSrc: svg5,
       title: "預防勝於治療早期發現安全問題",
     },
     {
-      imgSrc: "/service6.svg",
+      imgSrc: svg6,
       title: "建立可靠安全的防護系統",
     },
     {
-      imgSrc: "/service7.svg",
+      imgSrc: svg7,
       title: "將安全放在首位",
     },
     {
-      imgSrc: "/service8.svg",
+      imgSrc: svg8,
       title: "家的安全由你決定",
     },
   ];
@@ -58,19 +68,31 @@ export default function Service() {
                 Math.floor(idx / 4) % 2 === 0 ? " lg:-left-20" : "lg:-right-28"
               )}
             >
-              <figure className="rounded-5xl">
-                <Image
-                  alt=""
-                  src={item.imgSrc}
-                  className="rounded-5xl"
-                  width={250}
-                  height={150}
-                />
+              <figure className="rounded-5xl hover:cursor-pointer">
+                <div
+                  className={clsx(
+                    "rounded-5xl hover:opacity-20 ",
+                    "flex items-center justify-center",
+                    "h-[160px] w-[160px]",
+                    "md:h-[200px] md:w-[200px]",
+                    "lg:h-[240px] lg:w-[240px]",
+                    "xl:h-[280px] xl:w-[280px]"
+                  )}
+                  data-aos="zoom-in"
+                >
+                  <div className="relative h-3/4 w-full rounded-5xl hover:opacity-20">
+                    <Image
+                      src={item.imgSrc}
+                      alt=""
+                      fill
+                      className="  rounded-5xl"
+                    />
+                  </div>
+                </div>
+                <figcaption className="absolute inset-0 flex items-center justify-center">
+                  <strong className="text-2xl text-white">{item.title}</strong>
+                </figcaption>
               </figure>
-
-              <strong className="absolute top-28 left-20 text-2xl text-white">
-                {item.title}
-              </strong>
             </div>
           ))}
         </div>
