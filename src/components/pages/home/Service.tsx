@@ -64,33 +64,29 @@ export default function Service() {
             <div
               key={`item-${idx}`}
               className={clsx(
-                "relative",
+                "lg:relative",
                 Math.floor(idx / 4) % 2 === 0 ? " lg:-left-20" : "lg:-right-28"
               )}
             >
               <figure className="rounded-5xl hover:cursor-pointer">
                 <div
                   className={clsx(
-                    "rounded-5xl hover:opacity-20 ",
-                    "flex items-center justify-center",
-                    "h-[160px] w-[160px]",
-                    "md:h-[200px] md:w-[200px]",
-                    "lg:h-[240px] lg:w-[240px]",
-                    "xl:h-[280px] xl:w-[280px]"
+                    "flex items-center justify-center"
+
+                    // "md:h-[306px] md:w-[306px]",
+                    // "lg:h-[306px] lg:w-[306px]",
+                    // "xl:h-[280px] xl:w-[280px]"
                   )}
                   data-aos="zoom-in"
                 >
-                  <div className="relative h-3/4 w-full rounded-5xl hover:opacity-20">
-                    <Image
-                      src={item.imgSrc}
-                      alt=""
-                      fill
-                      className="  rounded-5xl"
-                    />
+                  <div className="relative h-3/4 min-w-60 w-60   rounded-5xl hover:opacity-20">
+                    <Image src={item.imgSrc} alt="" fill />
                   </div>
                 </div>
                 <figcaption className="absolute inset-0 flex items-center justify-center">
-                  <strong className="text-2xl text-white">{item.title}</strong>
+                  <strong className=" text-base md:text-2xl text-white px-6">
+                    {item.title}
+                  </strong>
                 </figcaption>
               </figure>
             </div>

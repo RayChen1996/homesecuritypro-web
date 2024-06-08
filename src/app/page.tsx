@@ -12,15 +12,13 @@ import Carousel from "@/components/pages/home/Carousel";
 export default function Home() {
   return (
     <main>
-      <BasicLayout>
-        <div className="flex flex-col   bg-gray-100 ">
-          <Banner />
-          <Carousel />
-          <Parner />
-          <Service />
-          <Feeback />
-        </div>
-      </BasicLayout>
+      <div className="flex flex-col   bg-gray-100 ">
+        <Banner />
+        <Carousel />
+        <Parner />
+        <Service />
+        <Feeback />
+      </div>
     </main>
   );
 }
