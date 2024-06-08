@@ -36,7 +36,7 @@ function CheckList() {
       <h1 className=" font-bold text-2xl text-white mb-9">
         您的房屋有以下狀況嗎？
       </h1>
-      <div className=" grid grid-cols-3 gap-4">
+      <div className=" md:grid grid-cols-3 gap-4">
         <span className=" bg-white opacity-75 rounded-3xl py-4 px-8 text-lg font-medium text-white-dark ">
           逃生不易
         </span>

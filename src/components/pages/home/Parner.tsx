@@ -48,10 +48,11 @@ export default function Parner() {
         subTitle="即時了解您的需求，安排最適合的合作廠商"
       />
       <Swiper
-        pagination={true}
-        navigation={true}
+        pagination={false}
+        navigation={false}
+        spaceBetween={20}
         modules={[Autoplay, Pagination, Navigation]}
-        className="w-full aspect-[1200/500]"
+        className="w-full aspect-[1200/1000] md:aspect-[1200/400]"
       >
         <SwiperSlide>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3  mb-[124px] place-items-center relative">
@@ -59,7 +60,7 @@ export default function Parner() {
               <div
                 key={`item-${idx}`}
                 className={clsx(
-                  "flex w-2/3 gap-2 items-center py-6 px-9 bg-white rounded-2xl mb-12  ",
+                  "md:flex md:w-2/3 w-full gap-2 items-center py-6 px-9 bg-white rounded-2xl mb-12  ",
 
                   idx % 4 === 0 || idx % 4 === 1
                     ? "relative -left-20"
@@ -67,7 +68,7 @@ export default function Parner() {
                   // idx % 2 === 0 && " relative -left-20"
                 )}
               >
-                <span>
+                <span className="flex justify-center items-center">
                   <Image src={item.imgSrc} width={120} height={120} alt="" />
                 </span>
                 <div>
@@ -88,7 +89,7 @@ export default function Parner() {
               <div
                 key={`item-${idx}`}
                 className={clsx(
-                  "flex w-2/3 gap-2 items-center py-6 px-9 bg-white rounded-2xl mb-12  ",
+                  "md:flex md:w-2/3 w-full gap-2 items-center py-6 px-9 bg-white rounded-2xl mb-12  ",
 
                   idx % 4 === 0 || idx % 4 === 1
                     ? "relative -left-20"
@@ -96,9 +97,9 @@ export default function Parner() {
                   // idx % 2 === 0 && " relative -left-20"
                 )}
               >
-                <span>
+                <div className="flex justify-center items-center">
                   <Image src={item.imgSrc} width={120} height={120} alt="" />
-                </span>
+                </div>
                 <div>
                   <h3 className=" ml-9 mb-4 text-2xl font-bold text-[#131313]">
                     {item.compony}

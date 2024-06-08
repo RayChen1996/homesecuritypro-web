@@ -55,7 +55,7 @@ export default function Service() {
               key={`item-${idx}`}
               className={clsx(
                 "relative",
-                Math.floor(idx / 4) % 2 === 0 ? "-left-20" : "-right-28"
+                Math.floor(idx / 4) % 2 === 0 ? " lg:-left-20" : "lg:-right-28"
               )}
             >
               <figure className="rounded-5xl">

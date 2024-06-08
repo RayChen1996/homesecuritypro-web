@@ -55,7 +55,7 @@ export default function Feeback() {
       />
       <SectionTitle subTitle="" title="使用者心得" />
 
-      <div className="flex justify-center items-center flex-col">
+      <div className="md:flex justify-center items-center flex-col">
         {userFeebacks.map((item, idx) => (
           <div
             key={`${idx}`}
@@ -66,13 +66,10 @@ export default function Feeback() {
             data-aos-mirror="true"
             data-aos="fade-up"
             className={clsx(
-              " flex gap-5 mb-16",
+              " md:flex gap-5 mb-16",
               idx % 2 === 0 && "flex-row-reverse"
             )}
           >
-            <div className=" bg-white p-5 shadow-md rounded-tl-2xl rounded-bl-2xl rounded-br-2xl text-white-dark ">
-              {item.message}
-            </div>
             <div className={clsx("flex items-center gap-2")}>
               <div className="avatar ">
                 <div className="w-24 rounded-full">
@@ -112,6 +109,9 @@ export default function Feeback() {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className=" bg-white p-5 shadow-md rounded-tl-2xl rounded-bl-2xl rounded-br-2xl text-white-dark ">
+              {item.message}
             </div>
           </div>
         ))}
