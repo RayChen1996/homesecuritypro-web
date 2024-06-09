@@ -43,5 +43,17 @@ const config: Config = {
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#70C0EF", // 修改此處為你想要的 btn-primary 顏色
+          "primary-focus": "#1E4E6C", // 這是當按鈕被點擊或聚焦時的顏色
+          "primary-content": "#FFFFFF", // 按鈕內容顏色 (例如文本顏色)
+          // 你可以根據需要添加更多的 DaisyUI 顏色變量
+        },
+      },
+    ],
+  },
 };
 export default config;

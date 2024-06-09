@@ -58,9 +58,17 @@ export default function Parner() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3  mb-[124px] place-items-center relative">
             {datas.map((item, idx) => (
               <div
+                onClick={() => {
+                  const modal = document.getElementById(
+                    "my_modal_1"
+                  ) as HTMLDialogElement;
+                  if (modal) {
+                    modal.showModal();
+                  }
+                }}
                 key={`item-${idx}`}
                 className={clsx(
-                  "md:flex md:w-2/3 w-full gap-2 items-center py-6 px-9 bg-white rounded-2xl mb-12  ",
+                  " cursor-pointer md:flex md:w-2/3 w-full gap-2 items-center py-6 px-9 bg-white rounded-2xl mb-12  ",
 
                   idx % 4 === 0 || idx % 4 === 1
                     ? "relative -left-20"
@@ -113,6 +121,60 @@ export default function Parner() {
           </div>
         </SwiperSlide>
       </Swiper>
+      <dialog id="my_modal_1" className="modal w-full ">
+        <div className=" w-11/12 h-full bg-white ">
+          <h3 className="font-bold text-lg">
+            <SectionTitle
+              title="合作專家"
+              subTitle="即時了解您的需求，安排最適合的合作廠商"
+            />
+          </h3>
+          <div>
+            <Swiper
+              pagination={false}
+              navigation={false}
+              spaceBetween={20}
+              modules={[Autoplay, Pagination, Navigation]}
+            >
+              <SwiperSlide>
+                <div className="flex">
+                  {datas.map((item, idx) => (
+                    <div
+                      key={`item-${idx}`}
+                      className={clsx(
+                        "md:w-2/3 w-full gap-2 items-center py-6 px-9 bg-white rounded-2xl mb-12  "
+                      )}
+                    >
+                      <div className="flex justify-center items-center">
+                        <Image
+                          src={item.imgSrc}
+                          width={120}
+                          height={120}
+                          alt=""
+                        />
+                      </div>
+                      <div>
+                        <h3 className=" ml-9 mb-4 text-2xl font-bold text-[#131313]">
+                          {item.compony}
+                        </h3>
+                        <p className=" ml-9 text-2xl text-[#626262] font-medium ">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 }

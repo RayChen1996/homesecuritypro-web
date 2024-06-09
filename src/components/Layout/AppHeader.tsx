@@ -12,7 +12,10 @@ export default function AppHeader() {
       </div>
 
       <button className="btn my-10 bg-primary-200 border-none rounded-3xl text-white">
-        <span className=" hidden md:block">註冊 / 登入</span>
+        <Link href={"/sign-in"}>
+          <span className=" hidden md:block">註冊 / 登入</span>
+        </Link>
+
         <span className=" md:hidden">
           <Image alt="" src={logoutSvg} />
         </span>

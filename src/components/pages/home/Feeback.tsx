@@ -51,7 +51,7 @@ export default function Feeback() {
       <Image
         src={SettingPng}
         alt=""
-        className="absolute -left-32 bottom-3 hidden md:block"
+        className="absolute -left-32 bottom-3 hidden md:block bg-opacity-25 opacity-50"
       />
       <SectionTitle subTitle="" title="使用者心得" />
 

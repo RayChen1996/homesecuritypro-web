@@ -58,7 +58,7 @@ export default function Service() {
         subTitle="歡迎來到新屋屋況查詢網－讓你的家更安心"
         title="服務項目"
       />
-      <div className="flex justify-center  mb-[60px]">
+      <div className="flex justify-center  mb-[60px] min-h-60">
         <div className=" grid grid-cols-2 md:grid-cols-4 gap-4">
           {datas.map((item, idx) => (
             <div
@@ -71,11 +71,12 @@ export default function Service() {
               <figure className="rounded-5xl hover:cursor-pointer">
                 <div
                   className={clsx(
-                    "flex items-center justify-center"
+                    "flex items-center justify-center",
+                    "h-[306px] w-[306px]",
 
-                    // "md:h-[306px] md:w-[306px]",
-                    // "lg:h-[306px] lg:w-[306px]",
-                    // "xl:h-[280px] xl:w-[280px]"
+                    "md:h-[306px] md:w-[306px]",
+                    "lg:h-[306px] lg:w-[306px]",
+                    "xl:h-[280px] xl:w-[280px]"
                   )}
                   data-aos="zoom-in"
                 >
