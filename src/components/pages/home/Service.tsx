@@ -72,7 +72,7 @@ export default function Service() {
                 <div
                   className={clsx(
                     "flex items-center justify-center",
-                    "h-[306px] w-[306px]",
+                    " h-28 w-28",
 
                     "md:h-[306px] md:w-[306px]",
                     "lg:h-[306px] lg:w-[306px]",
@@ -80,7 +80,7 @@ export default function Service() {
                   )}
                   data-aos="zoom-in"
                 >
-                  <div className="relative h-3/4 min-w-60 w-60   rounded-5xl hover:opacity-20">
+                  <div className="relative h-3/4   w-52   rounded-5xl hover:opacity-20">
                     <Image src={item.imgSrc} alt="" fill />
                   </div>
                 </div>
