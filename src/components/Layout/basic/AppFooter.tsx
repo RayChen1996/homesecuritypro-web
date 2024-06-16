@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
+/** - 頁尾 */
 export default function AppFooter() {
   return (
     <div className=" bg-primary-300 pt-1 ">
@@ -36,7 +38,7 @@ export default function AppFooter() {
           </a>
         </div>
 
-        <div className=" flex flex-col justify-center items-center">
+        <div className=" flex flex-col justify-center items-center md:mr-12">
           <button className="btn bg-primary-300 border-primary-100 text-primary-100  rounded-3xl">
             關於我們
           </button>
@@ -46,6 +48,14 @@ export default function AppFooter() {
           <a href="" className=" my-6 text-white">
             常見問題
           </a>
+        </div>
+        <div className=" flex flex-col justify-center items-center">
+          <Link
+            href="/admin"
+            className="btn bg-primary-300 border-primary-100 text-primary-100  rounded-3xl"
+          >
+            前往管理後台
+          </Link>
         </div>
       </footer>
 

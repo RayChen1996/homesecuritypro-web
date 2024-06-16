@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 六角 ｜ 單人專題 - 居家安全評估專家網
 
-## Getting Started
+[專案網址](https://homesecuritypro-web.vercel.app/) ｜ [後端 Github Repo](https://github.com/RayChen1996/homesecuritypro-ExpressAPI) ｜ [Swagger](https://homesecuritypro-expressapi.onrender.com/swagger) ｜
 
-First, run the development server:
+<hr/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 功能介紹
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+成為會員之後能夠進一步根據使用的服務分為「一般會員」及「合作專家」角色
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 一般會員
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 註冊/登入
+- 搜尋合作專家
+- 查看合作專家專頁、選擇方案
+- 收藏合作專家
+- 修改會員資料
+- 修改密碼
+- 申請成為合作專家
 
-## Learn More
+### 合作專家
 
-To learn more about Next.js, take a look at the following resources:
+- 登入
+- 編輯營養師專頁-關於我
+- 編輯方案
+- 查看會員諮詢列表
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<hr/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 網站流程
 
-## Deploy on Vercel
+### 會員
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. 搜尋合作專家 查看合作專家專頁與方案
+2. 購買課程
+3. 查看合作專家列表
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 合作專家
+
+1. 填寫合作專家專頁-關於我
+
+<hr/>
+
+## 資料夾結構
+
+<hr/>
+
+## 技術規格
+
+### 前端
+
+- Next
+- React
+- TypeScript
+- React Hook Form
+- RTK (Query)
+- TailwindCSS
+- daisyUI
+
+### 後端
+
+- Nodejs
+- MongoDB Atlas
+- Swagger
+- Postman
+- Render

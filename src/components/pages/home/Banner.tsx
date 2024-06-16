@@ -6,6 +6,7 @@ import {
   DesktopContainer,
   TabletAndBelowContainer,
 } from "@/components/MediaContainer/MediaContainer";
+import axios from "axios";
 
 /** - 房屋狀況Block */
 export default function Banner() {
@@ -33,6 +34,14 @@ interface houseSymptoms {
 }
 
 function CheckList() {
+  const _data = axios
+    .get("https://homesecuritypro-expressapi.onrender.com/house-symptoms")
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   const _houseSymptoms: houseSymptoms[] = [
     {
       label: "逃生不易",

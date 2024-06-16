@@ -1,13 +1,12 @@
-import BasicLayout from "@/components/Layout/basic";
-import React from "react";
 import MemberLayout from "@/components/Layout/member";
 import SectionTitle from "@/components/SectionTitle";
+import React from "react";
 
-export default function page() {
+export default function Page() {
   return (
     <MemberLayout>
       <div className=" min-h-screen h-full py-10   container">
-        <SectionTitle title="登入" subTitle="Login" />
+        <SectionTitle title="管理後台" subTitle="登入" />
         <div className=" w-2/3 m-auto h-2/3 flex justify-center items-center">
           <form>
             <label className="input input-bordered flex items-center gap-2 mb-3">

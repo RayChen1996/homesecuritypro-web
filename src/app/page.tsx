@@ -1,3 +1,4 @@
+"use client";
 import AppHeader from "@/components/Layout/AppHeader";
 import Banner from "@/components/pages/home/Banner";
 
