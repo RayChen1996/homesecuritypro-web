@@ -1,14 +1,31 @@
+"use client";
 import MemberLayout from "@/components/Layout/member";
 import SectionTitle from "@/components/SectionTitle";
 import React from "react";
-
+import { useRouter } from "next/navigation";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+interface LoginForm {
+  username: string;
+  password: string;
+}
 export default function Page() {
+  const { push } = useRouter();
+  function gotoDashboard() {
+    push("/");
+  }
+  const { control, watch, handleSubmit } = useForm<LoginForm>({});
+  const _submit: SubmitHandler<LoginForm> = (param) => {
+    // console.log(param.username);
+    // alert(param.username);
+    // alert(param.password);
+    push("/admin/dashboard");
+  };
   return (
     <MemberLayout>
       <div className=" min-h-screen h-full py-10   container">
         <SectionTitle title="管理後台" subTitle="登入" />
         <div className=" w-2/3 m-auto h-2/3 flex justify-center items-center">
-          <form>
+          <form onSubmit={handleSubmit(_submit)}>
             <label className="input input-bordered flex items-center gap-2 mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -19,11 +36,18 @@ export default function Page() {
                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
               </svg>
               <label htmlFor="username">帳號</label>
-              <input
-                id="username"
-                type="text"
-                className="grow input-lg input-primary"
-                placeholder=""
+              <Controller
+                name="username"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    id="username"
+                    type="text"
+                    className="grow input-lg input-primary"
+                    placeholder=""
+                  />
+                )}
               />
             </label>
             <label className="input input-bordered flex items-center gap-2 mb-3">
@@ -40,7 +64,18 @@ export default function Page() {
                 />
               </svg>
               <label htmlFor="password">密碼</label>
-              <input type="password" id="password" className="grow" value="" />
+              <Controller
+                name="password"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type="password"
+                    id="password"
+                    className="grow"
+                  />
+                )}
+              />
             </label>
 
             <button type="submit" className="btn btn-primary">
