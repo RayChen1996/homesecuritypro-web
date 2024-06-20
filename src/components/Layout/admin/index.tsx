@@ -12,7 +12,7 @@ export default function AdminLayout({ children, ...props }: AdminLayoutProps) {
     <div className=" min-h-screen max-h-dvh my-12">
       <div
         className={clsx(
-          "container m-auto w-4/5 border-2 rounded-3xl min-h-screen",
+          "container m-auto w-4/5 border-2 rounded-3xl min-h-screen flex",
           props
         )}
       >

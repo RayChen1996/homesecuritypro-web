@@ -85,7 +85,7 @@ function CheckList() {
       <h1 className="font-bold text-2xl text-white mb-9">
         您的房屋有以下狀況嗎？
       </h1>
-      <div className="flex  flex-wrap max-w-3xl gap-4">
+      <div className="flex flex-wrap max-w-3xl gap-4">
         {_houseSymptoms.map((item, idx) => (
           <span
             key={`item-${idx}`}

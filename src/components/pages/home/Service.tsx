@@ -20,76 +20,70 @@ interface ServiceItemProps {
 export default function Service() {
   const datas: ServiceItemProps[] = [
     {
-      imgSrc: svg1,
+      imgSrc: "/service1.jpg",
       title: "保護你的家庭安全",
     },
     {
-      imgSrc: svg2,
+      imgSrc: "/service2.jpg",
       title: "發現潛在的安全隱患",
     },
     {
-      imgSrc: svg3,
+      imgSrc: "/service3.jpg",
       title: "保護你所愛的人",
     },
     {
-      imgSrc: svg4,
+      imgSrc: "/service4.jpg",
       title: "將家變成安全的港灣",
     },
     {
-      imgSrc: svg5,
+      imgSrc: "/service5.jpg",
       title: "預防勝於治療早期發現安全問題",
     },
     {
-      imgSrc: svg6,
+      imgSrc: "/service6.jpg",
       title: "建立可靠安全的防護系統",
     },
     {
-      imgSrc: svg7,
+      imgSrc: "/service7.jpg",
       title: "將安全放在首位",
     },
     {
-      imgSrc: svg8,
+      imgSrc: "/service8.jpg",
       title: "家的安全由你決定",
     },
   ];
   return (
-    <div className="relative w-full bg-white">
+    <div className=" bg-white">
       <SectionTitle
         subTitle="歡迎來到新屋屋況查詢網－讓你的家更安心"
         title="服務項目"
       />
-      <div className="flex justify-center  mb-[60px] min-h-60">
-        <div className=" grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="mb-[60px] min-h-60 container">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
           {datas.map((item, idx) => (
             <div
-              key={`item-${idx}`}
+              key={`card-${idx}`}
               className={clsx(
-                "lg:relative",
-                Math.floor(idx / 4) % 2 === 0 ? " lg:-left-20" : "lg:-right-28"
+                "card  image-full mx-3 my-1",
+                idx % 8 < 4
+                  ? "md:translate-x-[-100px] mb-6"
+                  : "md:translate-x-[100px]"
               )}
             >
-              <figure className="rounded-5xl hover:cursor-pointer">
-                <div
-                  className={clsx(
-                    "flex items-center justify-center",
-                    " h-28 w-28",
-
-                    "md:h-[306px] md:w-[306px]",
-                    "lg:h-[306px] lg:w-[306px]",
-                    "xl:h-[280px] xl:w-[280px]"
-                  )}
-                  data-aos="zoom-in"
-                >
-                  <div className="relative h-3/4   w-52   rounded-5xl hover:opacity-20">
-                    <Image src={item.imgSrc} alt="" fill />
-                  </div>
-                </div>
-                <figcaption className="absolute inset-0 flex items-center justify-center">
-                  <strong className=" text-base md:text-2xl text-white px-6">
-                    {item.title}
-                  </strong>
-                </figcaption>
+              <figure className="w-[164px] h-[164px] md:w-[306px] md:h-[306px] ">
+                <Image
+                  src={item.imgSrc}
+                  alt=""
+                  fill
+                  className=" rounded-3xl"
+                  sizes="(min-width:1024px) 100vw,100vw"
+                />
               </figure>
+              <div className="card-body flex justify-center items-center">
+                <h2 className="card-title text-white md:whitespace-nowrap text-base md:text-2xl">
+                  {item.title}
+                </h2>
+              </div>
             </div>
           ))}
         </div>
