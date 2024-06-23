@@ -7,7 +7,12 @@ import {
   TabletAndBelowContainer,
 } from "@/components/MediaContainer/MediaContainer";
 import axios from "axios";
+import useQueryHouseSymptoms from "@/apollo/hooks/home/useQueryHouseSymptoms";
 
+//NOTE -  Hook
+
+//NOTE - Schema
+import { houseSymptoms } from "@/schema/houseSymptoms";
 /** - 房屋狀況Block */
 export default function Banner() {
   return (
@@ -29,69 +34,25 @@ export default function Banner() {
   );
 }
 
-interface houseSymptoms {
-  label: string;
-}
-
 function CheckList() {
-  const _data = axios
-    .get("https://homesecuritypro-expressapi.onrender.com/house-symptoms")
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  const _houseSymptoms: houseSymptoms[] = [
-    {
-      label: "逃生不易",
-    },
-    {
-      label: "門窗密閉",
-    },
-    {
-      label: "危樓",
-    },
-    {
-      label: "有裂縫",
-    },
-    {
-      label: "漏水",
-    },
-    {
-      label: "海砂屋",
-    },
-    {
-      label: "壁癌",
-    },
-    {
-      label: "輻射屋",
-    },
-    {
-      label: "線路老舊",
-    },
-    {
-      label: "缺乏消防安檢",
-    },
-    {
-      label: "屋齡超過 50 年",
-    },
-    {
-      label: "老屋需補強",
-    },
-  ];
+  const { data, loading, networkStatus } = useQueryHouseSymptoms();
+
+  // console.log(data);
+
+  const _data: houseSymptoms[] = data?.houseSymptoms || [];
+  if (loading) return <span className=" loading loading-spinner"></span>;
   return (
     <div className="absolute top-8 left-2 md:left-80 mt-[60px]">
       <h1 className="font-bold text-2xl text-white mb-9">
         您的房屋有以下狀況嗎？
       </h1>
       <div className="flex flex-wrap max-w-3xl gap-4">
-        {_houseSymptoms.map((item, idx) => (
+        {_data.map((item, idx) => (
           <span
             key={`item-${idx}`}
             className="bg-white opacity-75 leading-6  rounded-full py-4 px-3 text-lg font-medium text-white-dark"
           >
-            {item.label}
+            {item.labelName}
           </span>
         ))}
       </div>

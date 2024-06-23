@@ -62,12 +62,13 @@ export default function Service() {
         <div className="grid grid-cols-2 lg:grid-cols-4">
           {datas.map((item, idx) => (
             <div
+              data-aos="flip-left"
               key={`card-${idx}`}
               className={clsx(
                 "card  image-full mx-3 my-1",
                 idx % 8 < 4
-                  ? "md:translate-x-[-100px] mb-6"
-                  : "md:translate-x-[100px]"
+                  ? "md:translate-x-[-100px] md:mb-6 lg:translate-x-[-10px]"
+                  : "md:translate-x-[100px] lg:translate-x-[10px]"
               )}
             >
               <figure className="w-[164px] h-[164px] md:w-[306px] md:h-[306px] ">
@@ -75,7 +76,7 @@ export default function Service() {
                   src={item.imgSrc}
                   alt=""
                   fill
-                  className=" rounded-3xl"
+                  className=" rounded-xl"
                   sizes="(min-width:1024px) 100vw,100vw"
                 />
               </figure>

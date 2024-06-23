@@ -6,6 +6,8 @@ import AppFooter from "@/components/Layout/basic/AppFooter";
 import BasicLayout from "@/components/Layout/basic";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import ApploProvider from "@/provider/Apollo";
+
 const inter = Inter({ subsets: ["latin"] });
 const queryClient = new QueryClient();
 export const metadata: Metadata = {
@@ -20,10 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <QueryClientProvider client={queryClient}> */}
-      <body className={inter.className}>
-        <BasicLayout>{children}</BasicLayout>
-      </body>
+      <ApploProvider>
+        {/* <QueryClientProvider client={queryClient}> */}
+        <body className={inter.className}>
+          <BasicLayout>{children}</BasicLayout>
+        </body>
+      </ApploProvider>
       {/* </QueryClientProvider> */}
     </html>
   );
