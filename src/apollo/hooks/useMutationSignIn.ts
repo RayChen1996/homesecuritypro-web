@@ -4,28 +4,28 @@ import { type MutationTuple, gql, useMutation } from "@apollo/client";
 import type { MutationOptions } from "../hooks/type";
 
 const MUTATION = gql`
-  mutation createContactMessage($body: JSON!) {
-    createContactMessage(body: $body) {
-      # "成功"
-      success
-      # "訊息"
-      message
+  mutation Login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      token
     }
   }
 `;
 
 interface Data {
-  createContactMessage: object;
+  login: {
+    token: String;
+  };
 }
 
 interface Variables {
-  body: Object;
+  username: String;
+  password: String;
 }
 
 type Options = MutationOptions<Data, Variables>;
 
 /** - 登入 */
-export default function useMutaionCreateContactMessage(
+export default function useMutaionLogin(
   options?: Options
 ): MutationTuple<Data, Variables> {
   const tuple = useMutation<Data, Variables>(MUTATION, options);
