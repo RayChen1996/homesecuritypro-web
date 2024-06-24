@@ -6,11 +6,13 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { SchemaType, resolver, defaultValues } from "@/form/signIn";
 import useMutaionLogin from "@/apollo/hooks/useMutationSignIn";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 export default function Page() {
   const { handleSubmit, control, reset } = useForm<SchemaType>({
     resolver,
     defaultValues,
   });
+  const { push } = useRouter();
   const [Mutation, { loading }] = useMutaionLogin();
   const _onSubmit: SubmitHandler<SchemaType> = (data) => {
     console.log(data);
@@ -19,16 +21,28 @@ export default function Page() {
         username: data.username,
         password: data.password,
       },
-    }).then((res) => {
-      console.log(res);
-      console.log("成功");
+    })
+      .then((res) => {
+        console.log(res);
+        console.log("成功");
 
-      Swal.fire({
-        title: "成功登入!",
-        text: "成功登入",
-        icon: "success",
+        Swal.fire({
+          title: "成功登入!",
+          text: "成功登入",
+          icon: "success",
+        });
+        requestAnimationFrame(() => {
+          push("/guest");
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "登入失敗!",
+          text: "登入失敗",
+          icon: "error",
+        });
       });
-    });
   };
   return (
     <MemberLayout>
@@ -51,13 +65,18 @@ export default function Page() {
                 name="username"
                 render={({ field, fieldState: { error } }) => {
                   return (
-                    <input
-                      {...field}
-                      id="username"
-                      type="text"
-                      className="grow input-lg input-primary"
-                      placeholder=""
-                    />
+                    <>
+                      <input
+                        {...field}
+                        id="username"
+                        type="text"
+                        className="grow input-lg input-primary"
+                        placeholder=""
+                      />
+                      {error?.message && (
+                        <span className=" text-rose-600">{error?.message}</span>
+                      )}
+                    </>
                   );
                 }}
               />
@@ -81,12 +100,17 @@ export default function Page() {
                 name="password"
                 render={({ field, fieldState: { error } }) => {
                   return (
-                    <input
-                      {...field}
-                      type="password"
-                      id="password"
-                      className="grow"
-                    />
+                    <>
+                      <input
+                        {...field}
+                        type="password"
+                        id="password"
+                        className="grow"
+                      />
+                      {error?.message && (
+                        <span className=" text-rose-600">{error?.message}</span>
+                      )}
+                    </>
                   );
                 }}
               />

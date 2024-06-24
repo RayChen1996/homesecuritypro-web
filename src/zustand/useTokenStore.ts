@@ -27,7 +27,7 @@ const useTokenStore = createWithEqualityFn(
       },
     })),
     {
-      name: "@jodomme_web_token",
+      name: "@_web_token",
       storage: createJSONStorage(() => localStorage),
     }
   ),
