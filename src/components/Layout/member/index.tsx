@@ -8,7 +8,7 @@ export default function MemberLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className=" h-full relative bg-background overflow-hidden">
+    <div className=" z-10 h-full relative bg-background overflow-hidden">
       <Image
         src={SettingPng}
         alt=""
