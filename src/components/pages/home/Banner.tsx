@@ -8,7 +8,7 @@ import {
 } from "@/components/MediaContainer/MediaContainer";
 import axios from "axios";
 import useQueryHouseSymptoms from "@/apollo/hooks/home/useQueryHouseSymptoms";
-
+import Link from "next/link";
 //NOTE -  Hook
 
 //NOTE - Schema
@@ -62,9 +62,12 @@ function CheckList() {
 
 function CheckActionButton() {
   return (
-    <button className="rounded-3xl border-none text-white bottom-5 md:bottom-20 md:right-72 absolute btn bg-primary-200">
+    <Link
+      href={"/guest"}
+      className="rounded-3xl border-none text-white bottom-5 md:bottom-20 md:right-72 absolute btn bg-primary-200"
+    >
       立即檢測
       <i className="material-icons">arrow_forward</i>
-    </button>
+    </Link>
   );
 }
