@@ -30,9 +30,9 @@ export default function AppFooter() {
           <button className="btn bg-primary-300 border-primary-100  text-primary-100 rounded-3xl">
             成為合作專家
           </button>
-          <a href="" className=" my-6 text-white">
+          <Link href="/parner" className=" my-6 text-white">
             申請成為合作夥伴
-          </a>
+          </Link>
           <a href="" className=" my-6 text-white">
             合作夥伴儀錶板
           </a>

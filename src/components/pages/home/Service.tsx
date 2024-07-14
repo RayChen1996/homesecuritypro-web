@@ -67,8 +67,8 @@ export default function Service() {
               className={clsx(
                 "card  image-full mx-3 my-1",
                 idx % 8 < 4
-                  ? "md:translate-x-[-100px] md:mb-6 lg:translate-x-[-10px]"
-                  : "md:translate-x-[100px] lg:translate-x-[10px]"
+                  ? "md:translate-x-[-100px] md:mb-6 lg:translate-x-[-100px]"
+                  : "md:translate-x-[100px] lg:translate-x-[200px]"
               )}
             >
               <figure className="w-[164px] h-[164px] md:w-[306px] md:h-[306px] ">
