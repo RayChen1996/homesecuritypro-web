@@ -11,6 +11,7 @@ interface userFeebacksProps {
   rating: number;
   name: string;
   message: string;
+  location: string;
 }
 
 /** - 使用者心得 */
@@ -24,21 +25,24 @@ export default function Feeback() {
       name: "台北林先生",
       rating: 5,
       message:
-        "在尋找理想房屋的過程中，我一直在尋找一個能夠給予我安心保障的平台。幸運的是......",
+        "在尋找理想房屋的過程中，我一直在尋找一個能夠給予我安心保障的平台。幸運的是透過專家的檢測，我在簽約前就找到漏水風險，省下一大筆維修費用。",
+      location: "台北市 | 老屋翻修",
     },
     {
       imgSrc: "/man_avatar.png",
       name: "高雄張先生",
-      rating: 5,
+      rating: 4,
       message:
-        "這個平台的使用體驗非常良好。我可以輕鬆地瀏覽到最新上架的房屋案件，並透過分類............",
+        "這個平台的使用體驗非常良好。我可以輕鬆地瀏覽到最新上架的房屋案件，並透過分類快速找到符合需求的合作專家，報告也很易讀。",
+      location: "高雄市 | 新成屋驗收",
     },
     {
       imgSrc: "/woman_avatar.png",
       name: "台中林小姐",
       rating: 5,
       message:
-        "林小姐是一位首次置業者，她希望能夠找到一個安全可靠的房屋，讓她可以開始自己的獨立生活。......",
+        "我是首次置產者，專家陪同驗屋讓我能看懂細節，並且在交屋後提供保固與修繕追蹤，真的很安心。",
+      location: "台中市 | 首次購屋",
     },
   ];
   return (
@@ -55,7 +59,7 @@ export default function Feeback() {
       />
       <SectionTitle subTitle="" title="使用者心得" />
 
-      <div className="md:flex justify-center items-center flex-col">
+      <div className="md:flex justify-center items-center flex-col gap-6 px-6 pb-12">
         {userFeebacks.map((item, idx) => (
           <div
             key={`${idx}`}
@@ -66,51 +70,35 @@ export default function Feeback() {
             data-aos-mirror="true"
             data-aos="fade-up"
             className={clsx(
-              " md:flex gap-5 mb-16",
+              "md:flex w-full max-w-5xl items-start gap-5 rounded-2xl bg-white/80 p-6 shadow-md",
               idx % 2 === 0 && "flex-row-reverse"
             )}
           >
-            <div className={clsx("flex items-center gap-2")}>
-              <div className="avatar ">
+            <div className="flex items-center gap-3 md:flex-col md:items-start">
+              <div className="avatar border-4 border-white">
                 <div className="w-24 rounded-full">
-                  <Image alt="" width={50} height={50} src={item.imgSrc} />
+                  <Image alt="" width={96} height={96} src={item.imgSrc} />
                 </div>
               </div>
               <div>
-                <div className="text-white-dark">{item.name}</div>
-                <div>
-                  <div className="rating">
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                      checked
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                  </div>
+                <div className="text-lg font-semibold text-white-dark">{item.name}</div>
+                <div className="text-sm text-gray-500">{item.location}</div>
+                <div className="mt-2 flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, starIdx) => (
+                    <span
+                      key={`${item.name}-star-${starIdx}`}
+                      className={clsx(
+                        "material-icons text-lg",
+                        starIdx < item.rating ? "text-orange-400" : "text-gray-300"
+                      )}
+                    >
+                      grade
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
-            <div className=" bg-white p-5 shadow-md rounded-tl-2xl rounded-bl-2xl rounded-br-2xl text-white-dark ">
+            <div className="flex-1 rounded-xl bg-white p-5 text-base text-white-dark shadow-inner">
               {item.message}
             </div>
           </div>
