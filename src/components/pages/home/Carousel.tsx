@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import swiperImage from "@/../../public/image (1).png";
-import swiperImage2 from "@/../../public/earthquake.png";
-import swiperImage3 from "@/../../public/earthquake2.png";
-import dbArrowSvg from "@/../../public/dbArrow.svg";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -15,68 +11,72 @@ import "swiper/css/autoplay";
 // import required modules
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
+type Slide = {
+  image: string;
+  title: string;
+  subtitle: string;
+  cta: string;
+};
+
 export default function Carousel() {
+  const slides: Slide[] = [
+    {
+      image: "/image (1).png",
+      title: "家的安全由你掌握",
+      subtitle: "快速找尋專家，完成屋況健檢與修繕建議",
+      cta: "開始諮詢",
+    },
+    {
+      image: "/earthquake2.png",
+      title: "耐震、消防、漏水一次看懂",
+      subtitle: "以專業檢測報告拆解風險，陪你做出安心選擇",
+      cta: "查看服務方案",
+    },
+    {
+      image: "/earthquake.png",
+      title: "守護家人的每一天",
+      subtitle: "嚴選合作專家，提供全台在地的即時支援",
+      cta: "搜尋合作專家",
+    },
+  ];
+
   return (
-    <div className="mt-[60px] min-h-[420px] relative">
+    <div className="relative mt-[60px] min-h-[420px]">
       <Swiper
-        pagination={true}
+        pagination={{ clickable: true }}
         navigation={true}
+        loop
+        autoplay={{ delay: 4200, disableOnInteraction: false }}
         modules={[Autoplay, Pagination, Navigation]}
-        className="w-full aspect-[1200/500]"
+        className="w-full rounded-3xl shadow-xl"
       >
-        <SwiperSlide className="   flex justify-center items-center">
-          <Image alt="" src={swiperImage} fill className="object-cover" />
-          <div className="mt-80  w-1/4  m-auto     rounded-xl flex justify-center items-center p-12 flex-col bg-primary-300 opacity-75">
-            <h3 className=" text-white text-2xl md:text-[40px] text-nowrap font-bold mt-12">
-              您的家安全嗎？
-            </h3>
-            <Link href={"/"} className=" flex items-center justify-center ">
-              <span className=" text-white md:text-2xl text-base font-bold mt-[18px] md:mt-6">
-                找專家，保護家
-              </span>
-
-              <Image alt="" src={dbArrowSvg} width={40} height={40} />
-            </Link>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image alt="" src={swiperImage3} fill className="object-cover" />
-          <div className=" m-auto  mt-80 h-1/5   w-1/4   rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
-            <h3 className=" text-white text-[40px] font-bold">
-              您的家安全嗎？
-            </h3>
-            <Link href={"/"} className=" flex items-center">
-              <span className=" text-white text-2xl font-bold">
-                找專家，保護家
-              </span>
-
-              <Image alt="" src={dbArrowSvg} width={40} height={40} />
-            </Link>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image
-            alt=""
-            src={swiperImage2}
-            fill
-            sizes="(min-width: 1024px) 70vw, 100vw"
-            className="object-cover"
-          />
-          <div className=" m-auto  mt-80 h-1/5  w-1/4  rounded-xl flex justify-center items-center p-12 flex-col top-1/3 bg-primary-300 opacity-75 ">
-            <h3 className=" text-white text-[40px] font-bold">
-              您的家安全嗎？
-            </h3>
-            <Link href={"/"} className=" flex items-center">
-              <span className=" text-white text-2xl font-bold">
-                找專家，保護家
-              </span>
-
-              <Image alt="" src={dbArrowSvg} width={40} height={40} />
-            </Link>
-          </div>
-        </SwiperSlide>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.title} className="relative flex min-h-[420px] items-center justify-center overflow-hidden">
+            <Image
+              alt={slide.title}
+              src={slide.image}
+              fill
+              sizes="(min-width: 1024px) 90vw, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20" />
+            <div className="relative mx-auto flex max-w-5xl flex-col items-start gap-4 px-8 py-10 text-white md:px-16 lg:px-24">
+              <p className="rounded-full bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/85">
+                Home Security Pro
+              </p>
+              <h3 className="text-3xl font-bold leading-tight drop-shadow md:text-5xl">{slide.title}</h3>
+              <p className="max-w-2xl text-lg text-white/90 md:text-xl">{slide.subtitle}</p>
+              <Link
+                href="/guest"
+                className="btn mt-2 rounded-full border-none bg-primary-200 text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                {slide.cta}
+                <span className="material-icons">arrow_forward</span>
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
